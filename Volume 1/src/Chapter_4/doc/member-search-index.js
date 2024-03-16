@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"Chapter_4.src","c":"ExampleClass","l":"ExampleClass(String)","u":"%3Cinit%3E(java.lang.String)"},{"p":"Chapter_4.src","c":"ExampleClass","l":"exampleMethod()"}];updateSearchResults();
