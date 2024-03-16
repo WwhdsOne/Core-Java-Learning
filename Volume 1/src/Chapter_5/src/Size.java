@@ -1,4 +1,4 @@
-package Chapter_5;
+package Chapter_5.src;
 
 public enum Size {
     SMALL("S"), MEDIUM("M"), LARGE("L"), EXTRA_LARGE("XL");
