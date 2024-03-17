@@ -38,7 +38,7 @@ public class switch语句3_8_5 {
             default -> System.out.println("default");
         }
 
-        //有直通行为的switch表达式
+        //Java 14引入了有直通行为的switch表达式
         numLetters = switch (seasonName){
             case "Spring" : System.out.println("Spring");
             case "Summer","Winter" : yield 6;

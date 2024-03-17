@@ -1,4 +1,4 @@
-package Chapter_5.src;
+package Chapter_5.src.枚举类5_7;
 
 public enum Size {
     SMALL("S"), MEDIUM("M"), LARGE("L"), EXTRA_LARGE("XL");

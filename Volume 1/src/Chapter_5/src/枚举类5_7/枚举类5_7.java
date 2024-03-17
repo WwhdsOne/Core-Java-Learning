@@ -1,4 +1,4 @@
-package Chapter_5.src;
+package Chapter_5.src.枚举类5_7;
 
 /**
  * @author Wwh
