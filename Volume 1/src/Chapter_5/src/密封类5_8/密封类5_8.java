@@ -24,8 +24,8 @@ public class 密封类5_8 {
         //如果一个密封类的子类是非final的,那么它可以有子类
         //但是这些子类必须在permits子句中声明
         //一个密封类的子类必须是可访问的
-        //密封类子类必须指定它是sealed、final还是允许继续派生子类、对于最后一种情况，必须指定允许继续派生的子类
-        //如果一个类是sealed的，那么它的子类必须在同一个包中
+        //密封类子类必须指定它是sealed、final还是允许继续派生子类、对于最后一种情况，必须指定允许继续派生子类
+        //对于最后一种情况,必须声明为non-sealed
 
         Game actgame = new actGame();
         Game strategygame = new strategyGame();
