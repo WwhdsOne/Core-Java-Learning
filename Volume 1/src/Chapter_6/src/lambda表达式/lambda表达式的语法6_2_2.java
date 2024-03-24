@@ -3,6 +3,8 @@ package Chapter_6.src.lambda表达式;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import static java.util.Comparator.nullsFirst;
+
 /**
  * @author Wwh
  * @ProjectName Core Java

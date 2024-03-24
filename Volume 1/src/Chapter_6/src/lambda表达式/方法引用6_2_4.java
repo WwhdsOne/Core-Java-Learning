@@ -33,17 +33,19 @@ public class 方法引用6_2_4 {
         Arrays.sort(s, Integer::compare);
         System.out.println(Arrays.toString(s));
 
-        //要用::操作符分隔方法名和对象或类名,主要有三种情况
-        //1. object::instanceMethod
+        // 要用::操作符分隔方法名和对象或类名,主要有三种情况
+        // 1. object::instanceMethod
         String str = "    Wwhds      ";
         Supplier<String> supplier = str::trim;
         String trimmedStr = supplier.get();
         System.out.println(trimmedStr);  // 输出："Wwhds"
-        //2. Class::staticMethod
+        // 2. Class::staticMethod
+        //iFunction 是Java中的一个函数式接口，它代表了一个接受两个输入参数并产生一个结果的函数。
+        //这是一个泛型接口，可以操作任何类型的对象。
         BiFunction<Double, Double, Double> power = Math::pow;
         double result = power.apply(2.0, 3.0);
         System.out.println(result);  // 输出：8.0
-        //3. Class::instanceMethod
+        // 3. Class::instanceMethod
         // 使用 String::length 方法引用创建 Function 实例
         Function<String, Integer> function = String::length;
 
