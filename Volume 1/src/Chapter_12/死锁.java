@@ -23,7 +23,9 @@ public class 死锁 {
                 e.printStackTrace();
             } finally {
                 lock.unlock();
+                System.out.println("Thread 1: unlocked");
                 lock.unlock();
+                System.out.println("Thread 1: unlocked again");
             }
         });
 
