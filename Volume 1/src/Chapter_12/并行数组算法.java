@@ -20,7 +20,6 @@ public class 并行数组算法 {
         for ( int i = 0; i < 10000000; i++ ) {
             arr[i] = r.nextLong();
         }
-        int i = 10;
         LocalDateTime begin = LocalDateTime.now();
         Arrays.parallelSort(arr);
         LocalDateTime end = LocalDateTime.now();
