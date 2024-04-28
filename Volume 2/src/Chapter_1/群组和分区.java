@@ -34,6 +34,8 @@ public class 群组和分区 {
 
     private static void 语言流转映射表_重复键_合并_使用partitioningBy() {
         Stream<Locale> availableLocales = Stream.of(Locale.getAvailableLocales());
+        //按照语言分组
+        //partitioningBy是groupingBy的特殊情况，只有两个组，一个是true，一个是false
         Map<Boolean, List<Locale>> collect = availableLocales.collect(
                 Collectors.partitioningBy(l -> l.getLanguage().equals("zh")));
         System.out.println(collect.get(true));

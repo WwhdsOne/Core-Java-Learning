@@ -45,7 +45,7 @@ public class 下游收集器 {
         System.out.println(collect);
     }
 
-    private static void 语言流转映射表_统计元素个数(){
+    private static void 语言流转映射表_统计元素个数() {
         Stream<Locale> availableLocales = Stream.of(Locale.getAvailableLocales());
         Map<String, Long> collect = availableLocales.collect(
                 Collectors.groupingBy(
@@ -57,7 +57,7 @@ public class 下游收集器 {
 
     private static void 语言流转映射表_统计总和和平均() {
         Stream<Locale> availableLocales = Stream.of(Locale.getAvailableLocales());
-        Map<String,Integer> collect = availableLocales.collect(
+        Map<String, Integer> collect = availableLocales.collect(
                 Collectors.groupingBy(
                         Locale::getCountry,
                         summingInt(l -> l.getLanguage().length())
@@ -72,7 +72,7 @@ public class 下游收集器 {
         System.out.println(collect1);
     }
 
-    private static void maxBy和minBy方法(){
+    private static void maxBy和minBy方法() {
         Stream<Student> studentStream = Stream.of(new Student("北京", "张三"), new Student("上海", "李四"));
         Map<String, Optional<Student>> collect = studentStream.
                 collect(groupingBy(Student::getCity, maxBy(Comparator.comparing(Student::getName))));
@@ -83,7 +83,7 @@ public class 下游收集器 {
         System.out.println(collect.get("北京").get().getName());
     }
 
-    private static void collectionAndThen方法(){
+    private static void collectionAndThen方法() {
         var list = Stream.generate(Math::random).limit(30).toList();
         Map<Character, Integer> collect = list.stream().collect(groupingBy(
                 s -> String.valueOf(s + 0.5).charAt(0),
@@ -92,7 +92,7 @@ public class 下游收集器 {
         System.out.println(collect);
     }
 
-    private static void mapping方法(){
+    private static void mapping方法() {
         var list = Stream.generate(Math::random).limit(30).toList();
         Map<Character, Set<Integer>> collect = list.stream().collect(
                 groupingBy(
@@ -103,7 +103,7 @@ public class 下游收集器 {
         System.out.println(collect);
     }
 
-    private static void flatMapping方法(){
+    private static void flatMapping方法() {
         List<String> words = List.of("Hello", "World");
         Map<Integer, TreeSet<Character>> result = words.stream()
                 .collect(Collectors.groupingBy(
@@ -116,7 +116,7 @@ public class 下游收集器 {
         System.out.println(result);
     }
 
-    private static void summarizing方法(){
+    private static void summarizing方法() {
         var list = Stream.generate(Math::random).limit(30).toList();
         Map<Character, DoubleSummaryStatistics> collect = list.stream().collect(groupingBy(
                 s -> String.valueOf(s + 0.3).charAt(0),
@@ -125,12 +125,14 @@ public class 下游收集器 {
         System.out.println(collect);
     }
 
-    private static void filtering方法(){
+    private static void filtering方法() {
         var list = Stream.generate(Math::random).limit(30).toList();
-        Map<Character, DoubleSummaryStatistics> collect = list.stream().collect(groupingBy(
-                s -> String.valueOf(s + 0.3).charAt(0),
-                filtering(s -> s>0.5,summarizingDouble(Double::valueOf))
-        ));
+        Map<Character, DoubleSummaryStatistics> collect = list.stream().collect(
+                groupingBy(
+                        s -> String.valueOf(s + 0.3).charAt(0),
+                        filtering(s -> s > 0.5, summarizingDouble(Double::valueOf))
+                )
+        );
         System.out.println(collect);
     }
 }

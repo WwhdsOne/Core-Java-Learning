@@ -28,6 +28,7 @@ public class forkjoin和快排 {
         QuickSort quickSort = new QuickSort(arr, 0, arr.length - 1);
         var pool = new ForkJoinPool();
         LocalDateTime begin = LocalDateTime.now();
+        // 并发快排，不使用线程池也可以
         pool.invoke(quickSort);
         LocalDateTime end = LocalDateTime.now();
         // System.out.println("排序后:"+ Arrays.toString(arr));

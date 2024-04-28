@@ -1,8 +1,6 @@
 package Chapter_12;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * @author Wwh
@@ -11,17 +9,26 @@ import java.util.concurrent.FutureTask;
  * @description
  **/
 public class Callable与Future {
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
         Callable<Integer> callable = () -> {
             Thread.sleep(1000);
             return 1;
         };
-        var future = new FutureTask<>(callable);
-        var t = new Thread(future);
-        t.start();
+
+        FutureTask<Integer> future = new FutureTask<>(callable);
+        executorService.submit(future);
+
+
         System.out.println("任务已经开始咯");
+
         var result = future.get();
+
         System.out.println("result = " + result);
         System.out.println("任务已经结束咯");
+
+        executorService.shutdown();
     }
 }

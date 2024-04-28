@@ -8,16 +8,25 @@ package Chapter_12;
  **/
 public class volatie字段 {
 
+    private static int sum = 0;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        Runnable r = () -> {
+            for(int i = 0;i<1000000;i++){
+                plus();
+            }
+        };
+        Thread t1 = new Thread(r);
+        Thread t2 = new Thread(r);
+        t1.start();
+        t2.start();
+        Thread.sleep(5000);
+        System.out.println(sum);
+    }
 
-    }
-    private boolean done;
-    public synchronized boolean isDone() {
-        return done;
+    private static synchronized void plus(){
+        sum++;
     }
 
-    public synchronized void setDone(boolean done) {
-        this.done = done;
-    }
+
 }

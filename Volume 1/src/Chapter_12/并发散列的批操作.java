@@ -19,13 +19,13 @@ import static java.util.concurrent.ConcurrentHashMap.newKeySet;
  **/
 public class 并发散列的批操作 {
     public static void main(String[] args) {
-        var map = new HashMap<Integer, Integer>();
+        var map = new ConcurrentHashMap<Integer,Integer>();
         Set<String> set = newKeySet();
         for ( int i = 0; i < 15; i++ ) {
             map.put(i, i);
         }
         LocalDateTime begin = LocalDateTime.now();
-        map.forEach((k, v) -> {
+        map.forEach(1,(k, v) -> {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

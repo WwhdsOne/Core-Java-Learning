@@ -40,11 +40,17 @@ public class switch语句3_8_5 {
 
         //Java 14引入了有直通行为的switch表达式
         numLetters = switch (seasonName){
-            case "Spring" : System.out.println("Spring");
-            case "Summer","Winter" : yield 6;
-            case "Fall" : yield 4;
-            default : yield 1;
+            case "Spring" :
+                System.out.println("Spring");
+                yield 6; // 添加了yield语句
+            case "Summer","Winter" :
+                yield 6;
+            case "Fall" :
+                yield 4;
+            default :
+                yield 1;
         };
+        System.out.println(numLetters);
         System.out.println(numLetters);
 
         //有直通行为的switch语句

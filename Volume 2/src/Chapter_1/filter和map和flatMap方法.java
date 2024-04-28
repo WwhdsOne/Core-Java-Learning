@@ -48,8 +48,15 @@ public class filter和map和flatMap方法 {
     private static void mapMulti方法() {
         var list = List.of(List.of(1, 2), List.of(3, 4), List.of(5, 6));
         // 将每个List的元素乘以2
+        // 创建一个流，流中的元素是list中的元素
         list.stream()
+                // 使用mapMulti方法，它接受一个BiConsumer作为参数
+                // 这个BiConsumer接受两个参数：流中的一个元素（it）和一个Consumer（consumer）
+                // 对于流中的每个元素，都会调用这个BiConsumer
+                // 在这个BiConsumer中，我们对it（这是一个List）进行迭代
+                // 对于it中的每个元素e，我们调用consumer的accept方法，将e的两倍传递给consumer
                 .mapMulti((it, consumer) -> it.forEach(e -> consumer.accept(e * 2)))
+                // 最后，我们使用forEach方法，打印出流中的每个元素
                 .forEach(System.out::println);
     }
 }

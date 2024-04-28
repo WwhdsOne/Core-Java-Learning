@@ -42,4 +42,7 @@ public class 同步块 {
             sharedVariable++;
         }
     }
+    private static synchronized void plus1(){
+        sharedVariable++;
+    }
 }
