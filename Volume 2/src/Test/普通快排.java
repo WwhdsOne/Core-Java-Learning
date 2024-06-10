@@ -17,7 +17,7 @@ public class 普通快排 {
         long start = System.nanoTime();
 
         // Sort the numbers
-        Arrays.sort(numbers);
+        Arrays.parallelSort(numbers);
 
         // Stop timing
         long end = System.nanoTime();

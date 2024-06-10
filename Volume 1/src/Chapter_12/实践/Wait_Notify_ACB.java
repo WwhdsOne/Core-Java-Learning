@@ -6,7 +6,7 @@ class Wait_Notify_ACB {
     private int num;
     private static final Object LOCK = new Object();
 
-    private void printABCTenTimes(int targetNum) {
+    private void printABC(int targetNum) {
         for ( int i = 0; i < 10; i++ ) {
             synchronized (LOCK) {
                 // 使用while循环而不是if，以处理虚假唤醒的情况
@@ -31,8 +31,8 @@ class Wait_Notify_ACB {
     }
     public static void main(String[] args) {
         Wait_Notify_ACB wait_notify_acb = new Wait_Notify_ACB();
-        new Thread(() -> wait_notify_acb.printABCTenTimes(0), "A").start();
-        new Thread(() -> wait_notify_acb.printABCTenTimes(1), "B").start();
-        new Thread(() -> wait_notify_acb.printABCTenTimes(2), "C").start();
+        new Thread(() -> wait_notify_acb.printABC(0), "A").start();
+        new Thread(() -> wait_notify_acb.printABC(1), "B").start();
+        new Thread(() -> wait_notify_acb.printABC(2), "C").start();
     }
 }

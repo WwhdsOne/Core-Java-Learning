@@ -13,18 +13,27 @@ public class Callable与Future {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-        Callable<Integer> callable = () -> {
+        Callable<Integer> noException = () -> {
             Thread.sleep(1000);
             return 1;
         };
 
-        FutureTask<Integer> future = new FutureTask<>(callable);
-        executorService.submit(future);
+        Callable<Integer> exception = () -> {
+            Thread.sleep(1000);
+            throw new RuntimeException("抛出异常");
+        };
 
+        FutureTask<Integer> future1 = new FutureTask<>(noException);
+
+        FutureTask<Integer> future2 = new FutureTask<>(exception);
+
+        executorService.submit(future1);
+
+        executorService.execute(future2); // 由于future2抛出了异常，所以在这里会抛出异常
 
         System.out.println("任务已经开始咯");
 
-        var result = future.get();
+        var result = future1.get();
 
         System.out.println("result = " + result);
         System.out.println("任务已经结束咯");

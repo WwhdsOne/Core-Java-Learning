@@ -13,13 +13,10 @@ import java.util.StringJoiner;
  **/
 public class 字符串 {
     public static void main(String[] args) {
-        String str = "a good   example";
-        System.out.println(reverseWords(str));
+        String s1 = new String("abc");
+        String s2 = new String("abc");
+        System.out.println(s1.intern() == s2.intern());
     }
 
-    public static String reverseWords(String s) {
-        List<String> list = Arrays.asList(s.trim().split("\\s+"));
-        Collections.reverse(list);
-        return String.join(" ", list);
-    }
+
 }
